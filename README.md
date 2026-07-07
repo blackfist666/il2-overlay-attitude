@@ -112,3 +112,7 @@ question, not a technical one.
   (click-through), `WS_EX_NOACTIVATE` (never takes focus), `WS_EX_TOOLWINDOW`
   (hidden from Alt-Tab), and re-asserts TOPMOST once a second because games
   like to steal it.
+
+## Preview
+
+![Overlay preview showing 30° bank and 10° pitch](preview_bank30_pitch10.png)
