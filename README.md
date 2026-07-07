@@ -14,11 +14,22 @@ same category of tool as SimShaker.
 ## Requirements
 
 - Windows 10/11
-- Python 3.8+ (from https://python.org — tick "Add to PATH" during install)
 - IL-2 running in **borderless / windowed fullscreen** (in true exclusive
   fullscreen the overlay cannot draw over the game)
 
-No pip packages needed — standard library only.
+## Install (recommended)
+
+Download `IL2HorizonOverlay-Setup.exe` from the
+[Releases](https://github.com/blackfist666/il2-overlay-attitude/releases) page
+and run it. No Python required — it installs a standalone `.exe`, adds a Start
+Menu entry, and optionally a desktop shortcut. Launch it from the Start Menu
+or desktop icon; everything below under "Setup" still applies (you still need
+to enable telemetry in IL-2's `startup.cfg`).
+
+To rebuild the installer yourself instead of using a release: `pyinstaller
+IL2HorizonOverlay.spec` then compile `installer.iss` with
+[Inno Setup](https://jrsoftware.org/isinfo.php). Requires Python 3.8+ and
+`pip install pyinstaller` — only needed for building, not for running.
 
 ## Setup
 
@@ -42,7 +53,8 @@ port = 4321
 > pick a port nothing else uses and set it in both startup.cfg and the script.
 
 **2. Run the overlay** (before or after launching the game, order doesn't
-matter):
+matter). If you used the installer, launch it from the Start Menu or desktop
+shortcut. Running from source instead:
 
 ```
 python il2_horizon_overlay.py
