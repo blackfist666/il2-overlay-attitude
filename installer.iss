@@ -1,5 +1,5 @@
 #define MyAppName "IL-2 Horizon Overlay"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "Okano"
 #define MyAppExeName "IL2HorizonOverlay.exe"
 
