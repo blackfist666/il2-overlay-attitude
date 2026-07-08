@@ -1,8 +1,8 @@
 """
 IL-2 Great Battles — Artificial Horizon Overlay
 ================================================
-Transparent, always-on-top, click-through gauge that sits in the bottom-right
-corner of the screen and shows live bank/pitch from IL-2's UDP motion telemetry.
+Transparent, always-on-top, click-through gauge that sits top-center on the
+screen and shows live bank/pitch from IL-2's UDP motion telemetry.
 
 Zero pip dependencies — uses only the Python standard library + Windows APIs
 via ctypes. Requires Windows and Python 3.8+.
@@ -30,15 +30,14 @@ UDP_IP            = "0.0.0.0"   # listen address
 UDP_PORT          = 4321        # must match 'port' in startup.cfg [KEY = motiondevice]
 
 GAUGE_SIZE        = 180         # px, overall widget size (square)
-MARGIN_RIGHT      = 40          # px from right edge of screen
-MARGIN_BOTTOM     = 60          # px from bottom edge of screen
+MARGIN_TOP        = 20          # px from top edge of screen
 
 PX_PER_DEG        = 1.4         # pitch ladder scale (px per degree of pitch)
 SHOW_READOUT      = True        # numeric "bank / pitch" text under the gauge
 
 # Flip these if the horizon moves the wrong way on your install.
 INVERT_BANK       = False
-INVERT_PITCH      = False
+INVERT_PITCH      = True        # IL-2's motiondevice pitch sign reads nose-down as positive on this install
 
 SYNC_WITH_H_KEY   = True        # toggle overlay when H / Alt+H is pressed
 TOGGLE_VK         = 0x78        # VK code for the dedicated toggle key (F9=0x78)
@@ -185,9 +184,8 @@ class HorizonOverlay:
         w = GAUGE_SIZE
         h = GAUGE_SIZE + (22 if SHOW_READOUT else 0)
         sw = self.root.winfo_screenwidth()
-        sh = self.root.winfo_screenheight()
-        x = sw - w - MARGIN_RIGHT
-        y = sh - h - MARGIN_BOTTOM
+        x = (sw - w) // 2
+        y = MARGIN_TOP
         self.root.geometry(f"{w}x{h}+{x}+{y}")
 
         self.canvas = tk.Canvas(self.root, width=w, height=h,

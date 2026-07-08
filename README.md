@@ -1,6 +1,6 @@
 # IL-2 Great Battles — Artificial Horizon Overlay
 
-A small transparent gauge that sits in the bottom-right corner of your screen
+A small transparent gauge that sits top-center on your screen
 and shows live **bank** and **pitch** for your aircraft, driven by IL-2's
 built-in UDP motion telemetry (the same feed SimShaker and motion rigs use).
 It is click-through, never steals focus, and toggles with the same **H** key
@@ -86,10 +86,11 @@ overlay. Known quirk of listening globally; F9 puts it back.
 
 Everything lives in the CONFIG block at the top of the script:
 
-- `GAUGE_SIZE`, `MARGIN_RIGHT`, `MARGIN_BOTTOM` — size and corner position
+- `GAUGE_SIZE`, `MARGIN_TOP` — size and top-center position
 - `PX_PER_DEG` — pitch sensitivity of the ladder
 - `INVERT_BANK` / `INVERT_PITCH` — flip these if the horizon moves the wrong
-  way on your install (sign conventions untested against every game version)
+  way on your install (sign conventions untested against every game version;
+  `INVERT_PITCH` defaults to `True` since nose-up was reading as nose-down)
 - `SHOW_READOUT` — the numeric text under the gauge
 - `UDP_PORT` — must match startup.cfg
 
